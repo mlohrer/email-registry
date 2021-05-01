@@ -6,7 +6,7 @@ let filteredAddressList = [];
 let filterList = [];
 
 // filterList.push({ value: 't', includes: true }, { value: 'x', includes: false });
-addressList.push('test1', 'test2', 'superlongstringchain', 'test1', 'test2', 'superlongstringchain', 'test1', 'test2', 'superlongstringchain', 'test1', 'test2', 'superlongstringchain', 'test1', 'test2', 'superlongstringchain', 'test1', 'test2', 'superlongstringchain', 'test1', 'test2', 'superlongstringchain', 'test1', 'test2', 'superlongstringchain', 'test1', 'test2', 'superlongstringchain', 'test1', 'test2', 'superlongstringchain', 'test1', 'test2', 'superlongstringchain', 'test1', 'test2', 'superlongstringchain', 'test1', 'test2', 'superlongstringchain', 'test1', 'test2', 'superlongstringchain', 'test1', 'test2', 'superlongstringchain', 'test1', 'test2', 'superlongstringchain', 'test1', 'test2', 'superlongstringchain', 'test1', 'test2', 'superlongstringchain', );
+// addressList.push('test1', 'test2', 'superlongstringchain', 'test1', 'test2', 'superlongstringchain', 'test1', 'test2', 'superlongstringchain', 'test1', 'test2', 'superlongstringchain', 'test1', 'test2', 'superlongstringchain', 'test1', 'test2', 'superlongstringchain', 'test1', 'test2', 'superlongstringchain', 'test1', 'test2', 'superlongstringchain', 'test1', 'test2', 'superlongstringchain', 'test1', 'test2', 'superlongstringchain', 'test1', 'test2', 'superlongstringchain', 'test1', 'test2', 'superlongstringchain', 'test1', 'test2', 'superlongstringchain', 'test1', 'test2', 'superlongstringchain', 'test1', 'test2', 'superlongstringchain', 'test1', 'test2', 'superlongstringchain', 'test1', 'test2', 'superlongstringchain', 'test1', 'test2', 'superlongstringchain', );
 
 const getAddressListFromStorage = async () => {
     try {
@@ -43,8 +43,8 @@ const writeAddressListToDom = async () => {
         filterAddressList();
         filteredAddressList
             .forEach(address => {
-                const span = document.createElement('p');
-                span.innerHTML = `${address}<br/>`;
+                const span = document.createElement('span');
+                span.innerHTML = `${address}`;
                 tempDomFragment.appendChild(span);
             });
         addressListDomElement.innerHTML = '';
@@ -101,15 +101,16 @@ const addEmailToDom = async () => {
     try {
         const emailInput = document.getElementById('email-input').value;
         addressList.push(emailInput);
-        await writeAddressListToDom();
-        document.getElementById('email-input').innerHTML = '';
-        writeAddressListToStorage();
-        toggleModal();
+        if (emailInput !== '') {
+            await writeAddressListToDom();
+            document.getElementById('email-input').innerHTML = '';
+            writeAddressListToStorage();
+            toggleModal();
+        }
     } catch (err) {
         console.log(err);
     }
 }
-
 
 document.getElementById('email-form').addEventListener('submit', function (event) {
     event.preventDefault();
