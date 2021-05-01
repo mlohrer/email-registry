@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .button {
+    @apply py-3 px-8 text-white bg-yellow-400 active:bg-yellow-500 rounded-3xl shadow-sm;
+  }
+  .tracking-superwide {
+    letter-spacing: 0.5em;
+  }
+  .shadow-md-omnidirectional {
+    --tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06), 4px 0 6px -1px rgba(0, 0, 0, 0.1), 2px 0 4px -1px rgba(0, 0, 0, 0.06), 0 -4px 6px -1px rgba(0, 0, 0, 0.03), 0 -2px 4px -1px rgba(0, 0, 0, 0.03), -4px 0 6px -1px rgba(0, 0, 0, 0.03), -2px 0 4px -1px rgba(0, 0, 0, 0.03);
+box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+}
+
+body {
+  height: 100vh;
+
+  background: rgb(56, 209, 255);
+  background: linear-gradient(
+    225deg,
+    rgba(67, 239, 195, 1) 0%,
+    rgba(56, 209, 255, 1) 70%,
+    rgba(56, 209, 255, 1) 100%
+  );
+}

@@ -1,13 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="./src/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kortical eMail Store</title>
+</head>
+
+<body>
+  <article id="app" class="w-full h-full">
+
+    <div id="email-list-container"
+      class="sm:container p-14 mx-auto w-11/12 mt-11 h-3/5 bg-white rounded-md shadow-md-omnidirectional flex flex-col items-center">
+      <div class="mx-2 flex flex-col items-center space-y-4">
+        <img class="h-24 w-24" src="/src/img/logo.svg" alt="Kortical logo">
+        <p class="text-2xl font-bold text-kortical tracking-superwide uppercase pb-1">Kortical</p>
+        <p class="text-xl text-black font-semibold">User email list</p>
+        <button id="add-user" class="button focus:outline-none">Add user</button>
+        <div id="address-list" class="block"></div>
+        <div id="filter-list"></div>
+      </div>
+    </div>
+
+    <div id="modal-container" aria-labelledby="modal-title" role="dialog" aria-modal="true"
+      class="fixed inset-0 bg-gray-500 bg-opacity-50 hidden">
+      <div id="modal-box" class="mx-auto my-auto fixed inset-11">
+        <button id="modal-close" class="button focus:outline-none">X</button>
+        <form id="email-form">
+        <label for="email">Email entry</label>
+        <input type="text" id="email-input" name="email" />
+        <button id="add-email" class="button focus:outline-none">Add</button>
+        </form>
+      </div>
+    </div>
+
+  </article>
+  <script type="module" src="./src/main.js"></script>
+</body>
+
 </html>

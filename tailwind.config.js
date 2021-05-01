@@ -3,13 +3,21 @@ module.exports = {
     './src/**/*.html',
     './src/**/*.js',
   ],
-  mode: 'jit',
+  // mode: 'jit',
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        "kortical": "#38D1FF",
+      }
+    },
   },
   variants: {
-    extend: {},
+    extend: {
+      backgroundColor: ['active'],
+    },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
 }
