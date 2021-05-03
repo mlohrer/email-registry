@@ -1,0 +1,8 @@
+{
+    "name": "Kortical",
+    "short_name": "Kortical",
+    "start_url": "/",
+    "background_color": "#CCCCCC",
+    "theme_color": "#FFFFFF",
+    "display": "minimal-ui"
+}
